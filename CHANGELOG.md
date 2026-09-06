@@ -2,7 +2,7 @@
 
 Notable changes to Concept Grove are recorded here. A version entry describes the source; it does not certify a GitHub Release, a successful CI run, or a live deployment.
 
-## 1.0.0
+## 1.0.0 — 2026-09-06
 
 Initial public-source version under the MIT license.
 
@@ -26,4 +26,4 @@ Initial public-source version under the MIT license.
 
 ### Deployment status
 
-GitHub Pages has not yet been verified live. See [README.md](README.md) for the intended address and current hosting status; no passing Linux CI or final test counts are asserted here.
+[Concept Grove is live on GitHub Pages](https://parama-guru.github.io/concept-grove/). The initial Linux clean-install, build, browser-test, and deployment workflow succeeded. Local verification passed 180 unit/content tests and 64 browser cases; the public site was additionally checked at desktop and mobile widths. See [README.md](README.md) for evidence and repeatable release checks.

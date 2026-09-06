@@ -4,7 +4,7 @@
 
 **Ideas take root.** A calmer, local-first study space built with **React, strict TypeScript, Vite, and Three.js**. Start with **600 original flashcards** across machine learning, deep learning, and natural language processing. The short wordmark is **grove.**; the package name is `concept-grove`.
 
-> **GitHub Pages: pending verification.** The public repository exists. The [intended Pages address](https://parama-guru.github.io/concept-grove/) is not yet a verified live deployment; use the local setup below for now.
+> **[Study now — Concept Grove](https://parama-guru.github.io/concept-grove/)** · Free to use, no sign-in required. If the project helps, [give it a star on GitHub](https://github.com/Parama-Guru/concept-grove).
 
 ## A space for focused study
 
@@ -36,13 +36,13 @@ Open [the production preview](http://127.0.0.1:4173/). Serve Vite's generated ou
 
 ## Static hosting and GitHub Pages
 
-The public repository is [Parama-Guru/concept-grove](https://github.com/Parama-Guru/concept-grove). **Pages deployment and Linux CI still need verification**; the intended address above is not a live-site claim.
+The public repository is [Parama-Guru/concept-grove](https://github.com/Parama-Guru/concept-grove), and the verified website is [parama-guru.github.io/concept-grove](https://parama-guru.github.io/concept-grove/). The [initial Linux verification and deployment](https://github.com/Parama-Guru/concept-grove/actions/runs/34037456253) succeeded on September 6, 2026, including a clean install from public npm.
 
 [vite.config.ts](vite.config.ts) uses `base: './'`, making generated JavaScript, CSS, fonts, and HTML asset URLs relative. The favicon and brand icon also respect Vite's base. The same build can be published at a site's root or a GitHub Pages project subpath without hard-coding a repository name. See [Vite's relative-base documentation](https://vite.dev/guide/build#relative-base).
 
 Maintainers configure **Settings → Pages → Build and deployment → GitHub Actions**. The included [.github/workflows/pages.yml](.github/workflows/pages.yml) is configured to use Node.js 24, install locked dependencies and Chromium, then run `npm run check` and `npm run test:e2e`. Pull requests are checked without publishing. After successful checks on `main`, it uploads the tested static output and deploys with SHA-pinned Pages actions; only the deployment job receives `pages: write` and `id-token: write`.
 
-Before marking the site live, verify the workflow's reported URL with a hard refresh, library filtering, lazy-loaded progress, local fonts, favicon, and optional artwork. Local subpath tests do not prove that GitHub Pages or Linux CI has succeeded. See [Vite's GitHub Pages guide](https://vite.dev/guide/static-deploy#github-pages) for hosting background.
+For each release, verify the workflow's reported URL with a hard refresh, library filtering, lazy-loaded progress, local fonts, favicon, and optional artwork. [scripts/verify-live.mjs](scripts/verify-live.mjs) checks the public deployment in fresh desktop/mobile browser contexts, including dark appearance, keyboard controls, theme persistence, accessibility, and shipped license notices. Local subpath tests alone do not prove that GitHub Pages or Linux CI has succeeded. See [Vite's GitHub Pages guide](https://vite.dev/guide/static-deploy#github-pages) for hosting background.
 
 This app has no URL router: views live in React state, so no SPA rewrite or custom 404 page is required. Serve the output directory intact and use the host's trailing-slash site URL so relative assets resolve inside the project subpath. A folder or brand rename does not erase progress at the same origin. Export a backup before moving from localhost to Pages, a custom domain, or another origin, then import it at the destination.
 
@@ -171,7 +171,9 @@ npm run test:e2e
 
 Verification covers original-card and aggregate-deck invariants, scheduling, filters, backup validation, calendar statistics, and theme behavior; browser scenarios exercise study/library flows, keyboard isolation, focus, storage failures, responsive layouts, accessibility, and optional WebGL lifecycle. Production mount checks cover both `/concept-grove/` and `/GithubPages/concept-grove/`, including asset loading and refreshes. The latter is a test mount, not another published repository.
 
-Record actual command results, failures, and skips in each pull request rather than relying on a fixed test count here. Playwright produces a local HTML report. Graphics cases may skip when their independent WebGL2 capability probe fails. Automated checks are not a complete accessibility audit, a live-deployment check, or proof of compatibility with every browser/device.
+The v1.0.0 release passed **180 unit/content tests and 64 browser cases** locally, and the GitHub Linux workflow passed its clean install, build, verification, and deployment. The actual HTTPS site was also checked at 1440px and 375px using the live verification script.
+
+Record actual command results, failures, and skips in each pull request rather than relying on these release counts. Playwright produces a local HTML report. Graphics cases may skip when their independent WebGL2 capability probe fails. Automated checks are not a complete accessibility audit or proof of compatibility with every browser/device.
 
 ## Source map
 
@@ -186,6 +188,7 @@ Record actual command results, failures, and skips in each pull request rather t
 - [src/lib/ambientScene.ts](src/lib/ambientScene.ts): procedural Three.js scene and resource lifecycle.
 - [src/data/machineLearning.ts](src/data/machineLearning.ts), [src/data/deepLearning.ts](src/data/deepLearning.ts), and [src/data/naturalLanguage.ts](src/data/naturalLanguage.ts): the fixed 600-card original baseline.
 - [src/data/index.ts](src/data/index.ts): the aggregate deck, ID lookups, and subject metadata. Community additions use `communityCards`; the format and balance rules are in [CONTRIBUTING.md](CONTRIBUTING.md).
+- [src/data/community.ts](src/data/community.ts): add new original flashcards here with explicit stable IDs; do not insert into the original decks.
 - [src/types.ts](src/types.ts): shared card, subject, rating, and version-1 study-state types.
 - [src/data/cards.test.ts](src/data/cards.test.ts), [src/lib/study.test.ts](src/lib/study.test.ts), [src/lib/theme.test.ts](src/lib/theme.test.ts), [e2e/app.spec.ts](e2e/app.spec.ts), and [e2e/pages.spec.ts](e2e/pages.spec.ts): verification contracts.
 
