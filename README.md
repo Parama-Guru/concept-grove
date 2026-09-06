@@ -6,6 +6,12 @@
 
 > **[Study now — Concept Grove](https://parama-guru.github.io/concept-grove/)** · Free to use, no sign-in required. If the project helps, [give it a star on GitHub](https://github.com/Parama-Guru/concept-grove).
 
+## Project status and future work
+
+**v1.0.0 is released and usable for its documented local-first study scope.** The public site runs on GitHub Pages independently of this local checkout. Future improvements are not prerequisites for using the current release.
+
+See [future-upadate.md](future-upadate.md) for dated verification evidence, the owner's suggestion inbox, proposed improvements, naming considerations, and a checklist for safely removing a local checkout. Items in that document are ideas unless explicitly marked verified; browser-local progress and VS Code chat history are not backed up to GitHub.
+
 ## A space for focused study
 
 | Light | Dark |
