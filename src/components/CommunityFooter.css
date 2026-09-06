@@ -1,0 +1,16 @@
+.page-content:has(+ .footer-container) { padding-bottom: 0; }
+.footer-container { padding-top: 0; }
+.community-footer { margin-top: 38px; padding: 24px 0 18px; border-top: 1px solid var(--line); color: var(--muted); }
+.footer-project { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; }
+.footer-project strong { font: 650 16px/1.5 var(--font-heading); color: var(--ink); }
+.footer-version { font-size: 12px; border: 1px solid var(--line); background: var(--soft); border-radius: 5px; padding: 2px 6px; margin-left: 5px; color: var(--muted); }
+.footer-project p + p { margin-top: 5px; font-size: 13px; line-height: 1.7; }
+.community-footer a { color: var(--green); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.community-footer a:hover { text-decoration: underline; }
+.footer-star { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; border: 1px solid var(--green); background: var(--soft); border-radius: 9px; padding: 10px 14px; font-weight: 600; font-size: 13px; text-decoration: none; }
+.footer-links { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 24px; margin-top: 16px; }
+.footer-links a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; font-size: 13px; text-decoration: none; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px 20px; flex-wrap: wrap; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.footer-bottom p { font-size: 12px; line-height: 1.8; }
+.footer-bottom .text-button { font-size: 12px; min-height: 44px; }
+@media (max-width: 440px) { .footer-links { gap: 0 18px; }.footer-links a { font-size: 12px; }.footer-bottom { align-items: flex-start; } }

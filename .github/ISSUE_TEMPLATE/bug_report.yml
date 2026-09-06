@@ -1,0 +1,69 @@
+name: Bug report
+description: Report a reproducible problem with studying, appearance, storage, or hosting.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Concept Grove. Please search existing issues first.
+        This is a public report: do not include credentials, tokens, private information, or an unredacted study backup.
+        For vulnerabilities, follow the [security policy](https://github.com/Parama-Guru/concept-grove/blob/main/SECURITY.md) instead.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Use the version or commit you tested, or say unknown.
+      placeholder: v1.0.0
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, operating system, and device
+      description: Include browser version and whether this is a desktop or mobile device.
+    validations:
+      required: true
+  - type: input
+    id: deployment
+    attributes:
+      label: Where does it happen?
+      description: Local development, local production preview, or a hosted site. Remove private URL details and tokens.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Study space
+        - Card library or saved cards
+        - My progress
+        - Preferences, appearance, or backups
+        - Accessibility or keyboard navigation
+        - Build or static hosting
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Describe the starting view, relevant filters or appearance choice, and exact clicks or keys. Use synthetic data.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include the visible error message if there is one.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Optional screenshots or redacted logs
+      description: Remove personal data and secrets. Do not upload a real study backup.

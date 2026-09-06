@@ -1,0 +1,50 @@
+{
+  "name": "concept-grove",
+  "description": "Concept Grove: a calmer place to grow your understanding with 600 original ML, deep learning, and NLP flashcards.",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Parama-Guru <paramaguruvh@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parama-Guru/concept-grove.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Parama-Guru/concept-grove/issues"
+  },
+  "keywords": ["flashcards", "machine-learning", "deep-learning", "nlp", "spaced-repetition", "education", "typescript", "react", "threejs", "dark-mode", "local-first"],
+  "engines": { "node": ">=24 <25", "npm": ">=11" },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/generate-notices.mjs && tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "check": "npm run lint && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "5.3.0",
+    "@fontsource-variable/manrope": "5.3.0",
+    "@radix-ui/react-select": "2.3.7",
+    "lucide-react": "1.37.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "0.185.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@types/three": "0.185.4",
+    "@vitejs/plugin-react": "^6.1.0",
+    "oxlint": "^1.79.0",
+    "typescript": "~6.0.3",
+    "vite": "^8.2.2",
+    "vitest": "4.1.11"
+  }
+}

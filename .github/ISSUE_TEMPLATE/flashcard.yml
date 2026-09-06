@@ -1,0 +1,82 @@
+name: Flashcard correction or proposal
+description: Correct an existing card or suggest original ML, deep learning, or NLP content.
+title: "[Flashcard]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A single-card proposal is welcome. Maintainers coordinate new additions into balanced ML/DL/NLP batches.
+        Use your own wording and cite reliable sources; do not paste copied exam questions, book passages, or paid flashcards.
+        Existing cards are corrected in place without changing their IDs or positions. New cards belong only in the separate community deck.
+        See the [contribution guide](https://github.com/Parama-Guru/concept-grove/blob/main/CONTRIBUTING.md) for the full format. Do not attach personal backups or secrets.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type of contribution
+      options:
+        - Correct an existing card
+        - Propose a new card
+    validations:
+      required: true
+  - type: dropdown
+    id: subject
+    attributes:
+      label: Subject
+      options:
+        - Machine learning (ml)
+        - Deep learning (dl)
+        - Natural language processing (nlp)
+    validations:
+      required: true
+  - type: input
+    id: card-id
+    attributes:
+      label: Existing or proposed card ID
+      description: For corrections, give the current ID if known (for example ml-001). For a new card, suggest a stable ID such as ml-community-your-topic-slug, dl-community-your-topic-slug, or nlp-community-your-topic-slug.
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      description: Include a topic for a new proposal; for a correction, use the existing topic if known.
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty
+      description: Choose a level for a new proposal, or the current level if known.
+      options:
+        - foundation
+        - intermediate
+        - advanced
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: For corrections, include the existing question so it can be located. A proposed new question must be original and longer than 20 characters.
+    validations:
+      required: true
+  - type: textarea
+    id: answer
+    attributes:
+      label: Proposed answer or correction
+      description: Explain the correction, or give a full new answer longer than 70 characters. State assumptions and check any arithmetic.
+    validations:
+      required: true
+  - type: textarea
+    id: takeaway
+    attributes:
+      label: Takeaway
+      description: For a new proposal, provide an original takeaway longer than 15 characters. For a correction, include an updated takeaway only if needed.
+  - type: textarea
+    id: reasoning
+    attributes:
+      label: Why is this change useful?
+      description: Explain the factual error, ambiguity, or gap in coverage. Preserve the intended concept when correcting an existing card.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources and verification
+      description: Link reliable references or give a precise citation and explain how you checked the facts. Cite sources rather than copying their wording.
+    validations:
+      required: true

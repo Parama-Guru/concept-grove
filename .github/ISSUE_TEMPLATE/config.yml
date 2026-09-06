@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability privately
+    url: https://github.com/Parama-Guru/concept-grove/blob/main/SECURITY.md
+    about: Use a private advisory if enabled, or the email in the policy. Never put secrets in a public issue.
+  - name: Study and contribution guidance
+    url: https://github.com/Parama-Guru/concept-grove/blob/main/CONTRIBUTING.md
+    about: Read the workflow, stable-card-ID rules, balanced additions policy, and required checks.

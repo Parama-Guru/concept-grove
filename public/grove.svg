@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="grove-title">
+  <title id="grove-title">Concept Grove</title>
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="#e9f0e2" />
+  <path d="M32 48V25" fill="none" stroke="#345539" stroke-width="4" stroke-linecap="round" />
+  <path d="M32 36C20 36 15 29 16 20C26 19 32 25 32 36Z" fill="#739065" />
+  <path d="M32 31C32 20 39 14 49 15C50 25 43 31 32 31Z" fill="#345539" />
+  <path d="M24 49H40" fill="none" stroke="#345539" stroke-width="4" stroke-linecap="round" />
+  <circle cx="47" cy="44" r="3" fill="#a7bb8c" />
+</svg>

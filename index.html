@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%grove.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f9faf7" />
+    <meta name="description" content="Concept Grove: ideas take root. Study 600 original machine learning, deep learning, and NLP flashcards with spaced repetition, saved cards, and private local progress." />
+    <title>Concept Grove — Ideas take root</title>
+    <script>
+      // Resolve before paint; appearance never modifies study data or backups.
+      (() => {
+        let preference = 'system';
+        try { preference = localStorage.getItem('concept-grove:theme:v1') || 'system'; } catch { /* Storage may be blocked. */ }
+        const theme = preference === 'dark' || (preference !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#111c16' : '#f9faf7';
+      })();
+    </script>
+    <style>html[data-theme='dark'] { background: #111c16; color-scheme: dark; }</style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

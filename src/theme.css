@@ -1,0 +1,920 @@
+/* Shared additions only: the theme control and its narrow-screen topbar space. */
+.header-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--soft);
+  color: var(--green);
+}
+
+.header-theme:hover {
+  border-color: var(--green);
+  background: var(--surface);
+}
+
+.header-theme:focus-visible {
+  outline-color: var(--green);
+}
+
+@media (max-width: 440px) {
+  .topbar { gap: 8px; }
+  .breadcrumbs { flex: 1 1 0%; min-width: 0; }
+  .breadcrumbs strong {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .topbar-actions { flex: 0 0 auto; gap: 6px; }
+  /* Keep the streak's meaning available to screen readers without taking space. */
+  .streak-badge > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* The resolved document preference is the only dark-mode switch.
+   Keep this specificity: feature styles can arrive after this stylesheet. */
+html[data-theme='dark'] {
+  --ink: #edf4ed;
+  --muted: #bdcbbd;
+  --green: #a4d8b0;
+  --line: #3b5143;
+  --surface: #1b2a22;
+  --soft: #263b2e;
+  --page: #111c16;
+  --theme-raised: #213329;
+  --theme-hover: #304a3b;
+  --theme-control-border: #819987;
+  --theme-on-accent: #102318;
+  --theme-accent-hover: #bce6c4;
+  --theme-blue: #b0d3fa;
+  --theme-blue-soft: #24364a;
+  --theme-blue-border: #779abd;
+  --theme-peach: #f2c59e;
+  --theme-peach-soft: #423124;
+  --theme-peach-border: #b69375;
+  --theme-lilac: #d8c7f5;
+  --theme-lilac-soft: #372f47;
+  --theme-lilac-border: #a58cc2;
+  --theme-amber: #f2d58f;
+  --theme-amber-soft: #3c341f;
+  --theme-amber-border: #ad955d;
+  --theme-rose: #ffb9a7;
+  --theme-rose-soft: #432d2a;
+  --theme-rose-border: #ba887d;
+  color-scheme: dark;
+  color: var(--ink);
+  background: var(--page);
+  accent-color: var(--green);
+  scrollbar-color: var(--theme-control-border) var(--page);
+}
+
+/* Preserve the existing typography, focus widths/offsets and motion rules. */
+html[data-theme='dark'] :focus-visible {
+  outline-color: var(--green);
+}
+
+html[data-theme='dark']::selection,
+html[data-theme='dark'] ::selection {
+  color: var(--theme-on-accent);
+  background: var(--green);
+}
+
+html[data-theme='dark'] kbd {
+  color: var(--ink);
+  background: var(--soft);
+  border-color: var(--theme-control-border);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+/* --green is readable ink on dark surfaces; filled accents need dark ink. */
+html[data-theme='dark'] .skip-link,
+html[data-theme='dark'] .button-primary {
+  color: var(--theme-on-accent);
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 16%);
+}
+
+html[data-theme='dark'] .button-primary:not(:disabled):hover {
+  color: var(--theme-on-accent);
+  background: var(--theme-accent-hover);
+  border-color: var(--theme-accent-hover);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 24%);
+}
+
+html[data-theme='dark'] .button-secondary {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .button-secondary:not(:disabled):hover {
+  color: var(--ink);
+  background: var(--theme-hover);
+  border-color: var(--green);
+}
+
+html[data-theme='dark'] .button-danger {
+  color: #331b18;
+  background: var(--theme-rose);
+  border-color: var(--theme-rose);
+}
+
+html[data-theme='dark'] .button-danger:hover {
+  color: #331b18;
+  background: #ffd0c7;
+  border-color: #ffd0c7;
+}
+
+html[data-theme='dark'] .text-button:hover {
+  color: var(--theme-accent-hover);
+}
+
+html[data-theme='dark'] .icon-button:hover {
+  background: var(--theme-hover);
+}
+
+html[data-theme='dark'] .empty-state > svg {
+  color: var(--green);
+}
+
+/* Workspace chrome. Secondary copy already follows --muted. */
+html[data-theme='dark'] .sidebar,
+html[data-theme='dark'] .topbar {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+html[data-theme='dark'] .brand-period,
+html[data-theme='dark'] .nudge-illustration {
+  color: var(--green);
+}
+
+html[data-theme='dark'] .nav-item,
+html[data-theme='dark'] .subject-nav,
+html[data-theme='dark'] .sidebar-utility,
+html[data-theme='dark'] .local-profile > svg {
+  color: var(--muted);
+}
+
+html[data-theme='dark'] .nav-item:hover,
+html[data-theme='dark'] .subject-nav:hover,
+html[data-theme='dark'] .sidebar-utility:hover {
+  color: var(--ink);
+  background: var(--soft);
+}
+
+html[data-theme='dark'] .nav-item.active {
+  color: var(--green);
+  background: var(--soft);
+}
+
+html[data-theme='dark'] .nav-item.active:hover {
+  background: var(--theme-hover);
+}
+
+html[data-theme='dark'] .nav-active-dot,
+html[data-theme='dark'] .local-profile i,
+html[data-theme='dark'] .nudge-illustration span {
+  background: var(--green);
+}
+
+html[data-theme='dark'] .nav-count {
+  color: var(--muted);
+  background: var(--surface);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .sidebar-nudge,
+html[data-theme='dark'] .profile-icon {
+  background: var(--soft);
+  border-color: var(--line);
+}
+
+html[data-theme='dark'] .profile-icon,
+html[data-theme='dark'] .sidebar-nudge button {
+  color: var(--green);
+  border-color: var(--line);
+}
+
+html[data-theme='dark'] .sidebar-nudge button:hover,
+html[data-theme='dark'] .header-search:hover {
+  color: var(--theme-accent-hover);
+}
+
+html[data-theme='dark'] .breadcrumbs strong,
+html[data-theme='dark'] .streak-badge strong {
+  color: var(--ink);
+}
+
+html[data-theme='dark'] .streak-badge svg,
+html[data-theme='dark'] .streak-badge.has-streak,
+html[data-theme='dark'] .streak-badge.has-streak strong {
+  color: var(--theme-amber);
+}
+
+html[data-theme='dark'] .header-settings,
+html[data-theme='dark'] .header-theme {
+  color: var(--green);
+  background: var(--soft);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .header-settings:hover,
+html[data-theme='dark'] .header-theme:hover {
+  color: var(--theme-accent-hover);
+  background: var(--theme-hover);
+  border-color: var(--green);
+}
+
+/* A quiet evergreen hero; the decorative paper and GPU scene remain light. */
+html[data-theme='dark'] .welcome-hero {
+  background: radial-gradient(ellipse at 86% 15%, #35503b, transparent 55%),
+    linear-gradient(120deg, #213a2b, #1c2d23);
+  border-color: var(--line);
+}
+
+html[data-theme='dark'] .hero-copy h2 > span {
+  color: var(--green);
+}
+
+html[data-theme='dark'] .hero-eyebrow > span,
+html[data-theme='dark'] .hero-caption > span {
+  background: var(--green);
+}
+
+/* App.css groups paper captions with --muted. A local palette prevents
+   light-on-cream captions and inherited light headings in the static fallback. */
+html[data-theme='dark'] .hero-visual {
+  --ink: #263c31;
+  --muted: #4b6042;
+  --green: #345d49;
+  color: var(--ink);
+}
+
+html[data-theme='dark'] .hero-visual .math-art,
+html[data-theme='dark'] .hero-visual .art-leaf {
+  color: var(--green);
+}
+
+/* Overview, subject cards and the shared subject/difficulty color families. */
+html[data-theme='dark'] .overview-card,
+html[data-theme='dark'] .subject-card,
+html[data-theme='dark'] .daily-goal-panel,
+html[data-theme='dark'] .study-empty {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+html[data-theme='dark'] .subject-card {
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .subject-card:hover {
+  background: var(--theme-raised);
+  border-color: var(--green);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 20%);
+}
+
+html[data-theme='dark'] .subject-card.selected {
+  background: var(--soft);
+  border-color: var(--green);
+  box-shadow: inset 0 0 0 1px var(--green);
+}
+
+html[data-theme='dark'] .subject-card.subject-dl.selected {
+  background: var(--theme-blue-soft);
+  border-color: var(--theme-blue);
+  box-shadow: inset 0 0 0 1px var(--theme-blue);
+}
+
+html[data-theme='dark'] .subject-card.subject-nlp.selected {
+  background: var(--theme-peach-soft);
+  border-color: var(--theme-peach);
+  box-shadow: inset 0 0 0 1px var(--theme-peach);
+}
+
+html[data-theme='dark'] .icon-sage,
+html[data-theme='dark'] .subject-icon.ml,
+html[data-theme='dark'] .subject-pill,
+html[data-theme='dark'] .difficulty-pill,
+html[data-theme='dark'] .library-difficulty-foundation,
+html[data-theme='dark'] .rating-good {
+  color: var(--green);
+  background: var(--soft);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .icon-blue,
+html[data-theme='dark'] .subject-icon.dl,
+html[data-theme='dark'] .subject-pill.dl,
+html[data-theme='dark'] .rating-easy {
+  color: var(--theme-blue);
+  background: var(--theme-blue-soft);
+  border-color: var(--theme-blue-border);
+}
+
+html[data-theme='dark'] .icon-peach,
+html[data-theme='dark'] .subject-icon.nlp,
+html[data-theme='dark'] .subject-pill.nlp,
+html[data-theme='dark'] .difficulty-pill.advanced,
+html[data-theme='dark'] .library-difficulty-advanced {
+  color: var(--theme-peach);
+  background: var(--theme-peach-soft);
+  border-color: var(--theme-peach-border);
+}
+
+html[data-theme='dark'] .icon-lilac,
+html[data-theme='dark'] .difficulty-pill.intermediate {
+  color: var(--theme-lilac);
+  background: var(--theme-lilac-soft);
+  border-color: var(--theme-lilac-border);
+}
+
+html[data-theme='dark'] .library-difficulty-intermediate,
+html[data-theme='dark'] .rating-hard {
+  color: var(--theme-amber);
+  background: var(--theme-amber-soft);
+  border-color: var(--theme-amber-border);
+}
+
+html[data-theme='dark'] .rating-again {
+  color: var(--theme-rose);
+  background: var(--theme-rose-soft);
+  border-color: var(--theme-rose-border);
+}
+
+html[data-theme='dark'] .subject-card-arrow {
+  color: var(--muted);
+}
+
+html[data-theme='dark'] .selected .subject-card-arrow {
+  color: var(--theme-on-accent);
+  background: var(--green);
+}
+
+html[data-theme='dark'] .subject-dl.selected .subject-card-arrow {
+  background: var(--theme-blue);
+}
+
+html[data-theme='dark'] .subject-nlp.selected .subject-card-arrow {
+  background: var(--theme-peach);
+}
+
+html[data-theme='dark'] .subject-dot.ml,
+html[data-theme='dark'] .subject-progress > span {
+  background: var(--green);
+}
+
+html[data-theme='dark'] .subject-dot.dl,
+html[data-theme='dark'] .subject-dl .subject-progress > span {
+  background: var(--theme-blue);
+}
+
+html[data-theme='dark'] .subject-dot.nlp,
+html[data-theme='dark'] .subject-nlp .subject-progress > span {
+  background: var(--theme-peach);
+}
+
+html[data-theme='dark'] .tiny-dot {
+  background: var(--muted);
+}
+
+html[data-theme='dark'] .subject-progress,
+html[data-theme='dark'] .session-line {
+  background: var(--line);
+}
+
+/* Study controls, the stacked flashcard, answers and review states. */
+html[data-theme='dark'] .mode-tabs {
+  background: var(--soft);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .mode-tabs button:hover:not([aria-pressed='true']) {
+  color: var(--ink);
+  background: var(--theme-hover);
+}
+
+html[data-theme='dark'] .mode-tabs button[aria-pressed='true'] {
+  color: var(--theme-on-accent);
+  background: var(--green);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 18%);
+}
+
+html[data-theme='dark'] .mode-tabs button > span {
+  color: var(--muted);
+  background: var(--surface);
+}
+
+html[data-theme='dark'] .mode-tabs button[aria-pressed='true'] > span {
+  color: inherit;
+  background: transparent;
+}
+
+html[data-theme='dark'] .study-keys-toggle {
+  color: var(--green);
+  background: var(--surface);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .study-keys-toggle[aria-pressed='true'],
+html[data-theme='dark'] .reveal-button {
+  color: var(--green);
+  background: var(--soft);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .study-keys-toggle:hover,
+html[data-theme='dark'] .reveal-button:hover {
+  color: var(--theme-accent-hover);
+  background: var(--theme-hover);
+  border-color: var(--green);
+}
+
+html[data-theme='dark'] .flashcard {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--theme-control-border);
+  box-shadow: 0 6px 0 -3px var(--soft), 0 7px 0 -3px var(--line),
+    0 13px 0 -7px var(--surface), 0 14px 0 -7px var(--line),
+    0 12px 28px rgb(0 0 0 / 18%);
+}
+
+html[data-theme='dark'] .bookmark-button {
+  color: var(--muted);
+}
+
+html[data-theme='dark'] .bookmark-button.is-saved {
+  color: var(--green);
+}
+
+html[data-theme='dark'] .answer-content .card-question,
+html[data-theme='dark'] .card-answer,
+html[data-theme='dark'] .card-takeaway p {
+  color: var(--ink);
+}
+
+html[data-theme='dark'] .card-takeaway {
+  color: var(--green);
+  background: var(--soft);
+}
+
+html[data-theme='dark'] .flashcard-bottomline,
+html[data-theme='dark'] .week-dots {
+  border-color: var(--line);
+}
+
+html[data-theme='dark'] .mini-card-icon {
+  border-color: var(--theme-control-border);
+  box-shadow: 2px -1px 0 var(--soft);
+}
+
+html[data-theme='dark'] .navigation-button,
+html[data-theme='dark'] .panel-label {
+  color: var(--green);
+}
+
+html[data-theme='dark'] .navigation-button:hover:not(:disabled),
+html[data-theme='dark'] .keyboard-help:hover {
+  color: var(--theme-accent-hover);
+}
+
+html[data-theme='dark'] .session-line span {
+  background: var(--green);
+}
+
+html[data-theme='dark'] .rating-button:hover {
+  border-color: currentColor;
+  box-shadow: 0 0 0 1px currentColor;
+  filter: none;
+}
+
+html[data-theme='dark'] .rating-button kbd {
+  color: inherit;
+  background: transparent;
+  border-color: currentColor;
+  box-shadow: none;
+}
+
+html[data-theme='dark'] .panel-label h3 {
+  color: var(--ink);
+}
+
+html[data-theme='dark'] .ring-track {
+  stroke: var(--line);
+}
+
+html[data-theme='dark'] .ring-value {
+  stroke: var(--green);
+}
+
+html[data-theme='dark'] .week-dot {
+  background: var(--soft);
+  border-color: var(--line);
+}
+
+html[data-theme='dark'] .week-dot > span {
+  background: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .has-activity .week-dot {
+  color: var(--theme-on-accent);
+  background: var(--green);
+  border-color: var(--green);
+}
+
+html[data-theme='dark'] .is-today .week-dot {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--theme-control-border);
+}
+
+html[data-theme='dark'] .study-tip {
+  background: var(--theme-amber-soft);
+  border-color: var(--theme-amber-border);
+}
+
+html[data-theme='dark'] .tip-icon,
+html[data-theme='dark'] .study-tip .eyebrow,
+html[data-theme='dark'] .study-tip > p:not(.eyebrow) {
+  color: var(--theme-amber);
+}
+
+html[data-theme='dark'] .study-tip h3 {
+  color: var(--ink);
+}
+
+html[data-theme='dark'] .tip-rule {
+  background: var(--theme-amber-border);
+}
+
+html[data-theme='dark'] .session-complete {
+  background: var(--soft);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .completion-icon {
+  color: var(--theme-on-accent);
+  background: var(--green);
+}
+
+/* Notifications, help and every settings/backup/destructive-action state. */
+html[data-theme='dark'] .toast {
+  color: var(--ink);
+  background: var(--theme-raised);
+  border-color: var(--theme-control-border);
+  box-shadow: 0 8px 40px rgb(0 0 0 / 40%);
+}
+
+html[data-theme='dark'] .toast > svg {
+  color: var(--green);
+}
+
+html[data-theme='dark'] .storage-warning {
+  color: var(--theme-amber);
+  background: var(--theme-amber-soft);
+  border-color: var(--theme-amber-border);
+}
+
+html[data-theme='dark'] .storage-warning .text-button {
+  color: var(--theme-amber);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+html[data-theme='dark'] .storage-warning .text-button:hover {
+  color: var(--ink);
+}
+
+html[data-theme='dark'] .app-dialog {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--theme-control-border);
+  box-shadow: 0 25px 100px rgb(0 0 0 / 55%);
+}
+
+html[data-theme='dark'] .app-dialog::backdrop {
+  background: rgb(3 10 6 / 75%);
+}
+
+html[data-theme='dark'] .help-steps li > span {
+  color: var(--green);
+  background: var(--soft);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .help-shortcuts,
+html[data-theme='dark'] .backup-panel {
+  background: var(--soft);
+  border-color: var(--line);
+}
+
+html[data-theme='dark'] .backup-title {
+  color: var(--green);
+}
+
+html[data-theme='dark'] .backup-title h3 {
+  color: var(--ink);
+}
+
+html[data-theme='dark'] .goal-input input,
+html[data-theme='dark'] .compact-select select {
+  color: var(--ink);
+  background: var(--page);
+  border-color: var(--theme-control-border);
+  caret-color: var(--green);
+}
+
+html[data-theme='dark'] .compact-select svg {
+  color: var(--muted);
+}
+
+html[data-theme='dark'] .switch-input {
+  background: var(--page);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .switch-input::after {
+  background: var(--muted);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+}
+
+html[data-theme='dark'] .switch-input:checked {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+html[data-theme='dark'] .switch-input:checked::after {
+  background: var(--theme-on-accent);
+}
+
+html[data-theme='dark'] .confirm-panel {
+  color: var(--ink);
+  background: var(--soft);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .confirm-panel p {
+  color: var(--muted);
+}
+
+html[data-theme='dark'] .danger-panel {
+  background: var(--theme-rose-soft);
+  border-color: var(--theme-rose-border);
+}
+
+html[data-theme='dark'] .danger-panel h3,
+html[data-theme='dark'] .danger-panel p,
+html[data-theme='dark'] .reset-button,
+html[data-theme='dark'] .form-error {
+  color: var(--theme-rose);
+}
+
+html[data-theme='dark'] .reset-button:hover {
+  color: #ffd0c7;
+}
+
+/* Radix content may be portalled outside the app or into an open dialog.
+   Document-scoped colors cover either host, including highlighted selections. */
+html[data-theme='dark'] .select-field .select-trigger {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .select-field .select-trigger:hover,
+html[data-theme='dark'] .select-field .select-trigger[data-state='open'] {
+  color: var(--ink);
+  background: var(--theme-hover);
+  border-color: var(--green);
+}
+
+html[data-theme='dark'] .select-content {
+  color-scheme: dark;
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--theme-control-border);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 40%), 0 2px 8px rgb(0 0 0 / 24%);
+}
+
+html[data-theme='dark'] .select-option {
+  color: var(--ink);
+}
+
+html[data-theme='dark'] .select-option[data-state='checked'] {
+  color: var(--green);
+  background: var(--soft);
+}
+
+html[data-theme='dark'] .select-option[data-highlighted] {
+  color: var(--ink);
+  background: var(--theme-hover);
+  border-color: var(--green);
+}
+
+html[data-theme='dark'] .select-scroll {
+  color: var(--green);
+  background: var(--soft);
+}
+
+/* Most library surfaces already use tokens; cover fixed and filled states. */
+html[data-theme='dark'] .library-card {
+  box-shadow: 0 4px 18px rgb(0 0 0 / 16%);
+}
+
+html[data-theme='dark'] .library-search,
+html[data-theme='dark'] .library-subject-chip {
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .library-search:focus-within {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgb(164 216 176 / 24%);
+}
+
+html[data-theme='dark'] .library-subject-chip:hover {
+  border-color: var(--green);
+}
+
+html[data-theme='dark'] .library-subject-chip[aria-pressed='true'] {
+  color: var(--theme-on-accent);
+  background: var(--green);
+  border-color: var(--green);
+}
+
+html[data-theme='dark'] .library-subject-chip[aria-pressed='true']:hover {
+  color: var(--theme-on-accent);
+  background: var(--theme-accent-hover);
+  border-color: var(--theme-accent-hover);
+}
+
+html[data-theme='dark'] .library-subject-chip[aria-pressed='true'] .subject-dot {
+  background: var(--theme-on-accent);
+}
+
+html[data-theme='dark'] .library-panel .library-clear-filters,
+html[data-theme='dark'] .library-panel .library-page-button,
+html[data-theme='dark'] .library-panel .library-study-button {
+  color: var(--green);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .library-panel .library-study-button {
+  background: var(--soft);
+}
+
+html[data-theme='dark'] .library-panel .library-study-button:hover,
+html[data-theme='dark'] .library-panel .library-empty-reset {
+  color: var(--theme-on-accent);
+  background: var(--green);
+  border-color: var(--green);
+}
+
+html[data-theme='dark'] .library-panel .library-empty-reset:hover {
+  color: var(--theme-on-accent);
+  background: var(--theme-accent-hover);
+  border-color: var(--theme-accent-hover);
+}
+
+/* Keep pending results readable; the existing status text reports the update. */
+html[data-theme='dark'] .library-grid[data-search-pending='true'] {
+  opacity: 1;
+}
+
+html[data-theme='dark'] .library-panel .library-page-button:disabled {
+  color: var(--muted);
+  background: var(--page);
+  border-color: var(--line);
+  opacity: 1;
+}
+
+/* These overrides must outrank ProgressView.css even when it loads later. */
+html[data-theme='dark'] .progress-view {
+  color-scheme: dark;
+}
+
+html[data-theme='dark'] .progress-chart-bar {
+  background: #86b895;
+}
+
+html[data-theme='dark'] .progress-chart-column--today .progress-chart-bar {
+  background: var(--green);
+}
+
+html[data-theme='dark'] .progress-meter,
+html[data-theme='dark'] .progress-goal-meter {
+  background: var(--line);
+}
+
+html[data-theme='dark'] .progress-subject--ml {
+  --progress-subject-color: var(--green);
+}
+
+html[data-theme='dark'] .progress-subject--dl {
+  --progress-subject-color: var(--theme-blue);
+}
+
+html[data-theme='dark'] .progress-subject--nlp {
+  --progress-subject-color: var(--theme-peach);
+}
+
+html[data-theme='dark'] .progress-action--primary {
+  color: var(--theme-on-accent);
+  background: var(--green);
+  border-color: var(--green);
+}
+
+html[data-theme='dark'] .progress-action--primary:not(:disabled):hover {
+  color: var(--theme-on-accent);
+  background: var(--theme-accent-hover);
+  border-color: var(--theme-accent-hover);
+}
+
+html[data-theme='dark'] .progress-action--secondary {
+  color: var(--green);
+  background: var(--surface);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .progress-action--secondary:not(:disabled):hover {
+  color: var(--theme-accent-hover);
+  background: var(--theme-hover);
+  border-color: var(--green);
+}
+
+/* Support both the existing footer and the new community links. */
+html[data-theme='dark'] .page-footer,
+html[data-theme='dark'] .community-footer,
+html[data-theme='dark'] .footer-links {
+  color: var(--muted);
+  border-color: var(--line);
+}
+
+html[data-theme='dark'] .footer-project {
+  color: var(--ink);
+}
+
+html[data-theme='dark'] .footer-version {
+  color: var(--muted);
+  background: var(--soft);
+  border-color: var(--line);
+}
+
+html[data-theme='dark'] .footer-brand-mark {
+  color: var(--green);
+}
+
+html[data-theme='dark'] .community-footer a,
+html[data-theme='dark'] .footer-links a,
+html[data-theme='dark'] .footer-project a {
+  color: var(--green);
+  text-decoration-color: currentColor;
+}
+
+html[data-theme='dark'] .community-footer a:hover,
+html[data-theme='dark'] .footer-links a:hover,
+html[data-theme='dark'] .footer-project a:hover {
+  color: var(--theme-accent-hover);
+}
+
+html[data-theme='dark'] .footer-star {
+  color: var(--green);
+  background: var(--soft);
+  border-color: var(--theme-control-border);
+}
+
+html[data-theme='dark'] .footer-star:hover {
+  color: var(--theme-accent-hover);
+  background: var(--theme-hover);
+  border-color: var(--green);
+}
+
+@media (max-width: 640px) {
+  html[data-theme='dark'] .main-nav {
+    background: var(--surface);
+    border-color: var(--line);
+    box-shadow: 0 -6px 24px rgb(0 0 0 / 24%);
+  }
+
+  html[data-theme='dark'] .topbar {
+    background: var(--page);
+  }
+}

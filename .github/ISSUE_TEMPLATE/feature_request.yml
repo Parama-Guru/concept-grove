@@ -1,0 +1,39 @@
+name: Feature request
+description: Suggest a focused improvement to the local-first study experience.
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Small, well-explained ideas are welcome. Search existing issues before proposing a change.
+        Use the flashcard form for content corrections or new questions, and the [security policy](https://github.com/Parama-Guru/concept-grove/blob/main/SECURITY.md) for vulnerabilities.
+        This issue is public; leave out secrets and personal study data.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe who benefits and a concrete study or contributor scenario.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: Explain the behavior you would like, not just an implementation choice.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Existing controls, simpler approaches, or workarounds are useful context.
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Privacy, accessibility, and compatibility
+      description: Consider keyboard and mobile use, both color themes, frontend-only operation, and existing progress/backups.
+  - type: textarea
+    id: references
+    attributes:
+      label: Optional examples or references
+      description: Link related issues or references. Share only material you have permission to publish.
