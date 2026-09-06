@@ -3,6 +3,7 @@
   "description": "Concept Grove: a calmer place to grow your understanding with 600 original ML, deep learning, and NLP flashcards.",
   "private": true,
   "version": "1.0.0",
+  "homepage": "https://parama-guru.github.io/concept-grove/",
   "license": "MIT",
   "author": "Parama-Guru <paramaguruvh@gmail.com>",
   "repository": {
